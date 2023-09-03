@@ -23,7 +23,7 @@ B = (df.iloc[:,-1]).to_numpy()
 dimensionality = A.shape[1]
 num_vectors = A.shape[0]
 
-#print(dimensionality)
+print("DIMENSIONALITY :",dimensionality)
 #print(num_vectors)
 
 # How many vectors exist in this vector space?
@@ -31,13 +31,13 @@ num_vectors = A.shape[0]
 
 # What is the rank of Matrix A?
 rank_A = matrix_rank(A)
-#print(rank_A)
+print("RANK :",rank_A)
 
 # Using Pseudo-Inverse find the cost of each product available for sale.
 
 pseudo_inv_A = pinv(A)
 product_costs = pseudo_inv_A @ B  # AX=B , this is X
-#print(product_costs)
+print("PRODUCT COSTS :",product_costs)
 
 #------------------------------------------------------------------
 
@@ -45,10 +45,10 @@ product_costs = pseudo_inv_A @ B  # AX=B , this is X
 #available with the vendo
 
 predicted_cost = A @ product_costs
-#print(predicted_cost)
+print("PREDICTED COSTS :",predicted_cost)
 
 
 # A3 Mark customers as RICH or POOR based on payments
 df['Customer Category'] = df['Payment (Rs)'].apply(lambda x: 'RICH' if x > 200 else 'POOR')
-selected_columns = df[[ 'Payment (Rs)','Customer Category']]
-#print(selected_columns)
+selected_columns = df[['SPayment (Rs)','Customer Category']]
+print(selected_columns)
